@@ -1,0 +1,30 @@
+﻿<div class="jumbotron">
+    <h1>Upgrade your skills with TeachMe!</h1>
+    <p class="lead">Study the subjects for each school grade, test yourself and battle with your friends.</p>
+</div>
+
+<div class="row">
+    <div class="subheader col-md-4">
+        <h2>@Html.Raw(ViewBag.UsersCount)</h2>
+        <p>
+            Registered Users
+        </p>
+    </div>
+    <div class="subheader col-md-4">
+        <h2>@Html.Raw(ViewBag.BattlesCount)</h2>
+        battles Fought
+    </div>
+    <div class="subheader col-md-4">
+        <h2>@Html.Raw(ViewBag.LessonsCount)</h2>
+        Lessons Deployed
+    </div>
+</div>
+
+<div class="row">
+    <div id="subheader-study" class="subheader col-md-6">
+        <a href="#" class="subheader-text">Study</a>
+    </div>
+    <div id="subheader-fight" class="subheader col-md-6">
+        <a href="#" class="subheader-text">Fight</a>
+    </div>
+</div>

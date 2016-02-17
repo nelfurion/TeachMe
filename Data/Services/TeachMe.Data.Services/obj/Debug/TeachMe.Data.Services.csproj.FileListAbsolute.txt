@@ -1,0 +1,15 @@
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\TeachMe.Data.Services.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\TeachMe.Data.Services.pdb
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\TeachMe.Data.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\TeachMe.Data.Models.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\EntityFramework.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\TeachMe.Data.pdb
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\TeachMe.Data.Models.pdb
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\EntityFramework.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\obj\Debug\TeachMe.Data.Services.csprojResolveAssemblyReference.cache
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\obj\Debug\TeachMe.Data.Services.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Data\Services\TeachMe.Data.Services\obj\Debug\TeachMe.Data.Services.pdb

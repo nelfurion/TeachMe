@@ -1,0 +1,16 @@
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\TeachMe.Data.dll.config
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\TeachMe.Data.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\TeachMe.Data.pdb
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\EntityFramework.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\TeachMe.Data.Models.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\TeachMe.Data.Models.pdb
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\EntityFramework.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\obj\Debug\TeachMe.Data.csprojResolveAssemblyReference.cache
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\obj\Debug\TeachMe.Data.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\TeachMe.Data\obj\Debug\TeachMe.Data.pdb
