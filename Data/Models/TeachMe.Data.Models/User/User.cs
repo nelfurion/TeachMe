@@ -16,12 +16,6 @@
             this.Comments = new HashSet<Comment>();
         }
 
-        [Required]
-        public int Type { get; set; }
-
-        [ForeignKey("Type")]
-        public virtual UserType UserType { get; set; }
-
         public virtual ICollection<Lesson> Lessons { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }

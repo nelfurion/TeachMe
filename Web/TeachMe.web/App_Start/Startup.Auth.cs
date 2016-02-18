@@ -5,11 +5,11 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using TeachMe.web.Models;
+using TeachMe.Web.Models;
 using TeachMe.Data;
 using TeachMe.Data.Models;
 
-namespace TeachMe.web
+namespace TeachMe.Web
 {
     public partial class Startup
     {

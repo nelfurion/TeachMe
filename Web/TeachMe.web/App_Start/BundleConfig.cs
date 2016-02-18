@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace TeachMe.web
+namespace TeachMe.Web
 {
     public class BundleConfig
     {

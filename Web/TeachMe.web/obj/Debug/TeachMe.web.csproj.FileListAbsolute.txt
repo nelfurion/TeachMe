@@ -132,3 +132,5 @@ C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Web\TeachMe.web\bin\Micr
 C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Web\TeachMe.web\bin\Remotion.Linq.xml
 C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Web\TeachMe.web\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Web\TeachMe.web\bin\System.Interactive.Async.xml
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Web\TeachMe.web\bin\AutoMapper.dll
+C:\Users\radostin\Documents\informatics\TeachMe\TeachMe\Web\TeachMe.web\bin\AutoMapper.xml

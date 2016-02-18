@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TeachMe.Data.Services.Contracts;
 
-namespace TeachMe.web.Controllers
+namespace TeachMe.Web.Controllers
 {
     public class LevelController : Controller
     {

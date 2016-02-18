@@ -10,11 +10,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using TeachMe.web.Models;
+using TeachMe.Web.Models;
 using TeachMe.Data.Models;
 using TeachMe.Data;
 
-namespace TeachMe.web
+namespace TeachMe.Web
 {
     public class EmailService : IIdentityMessageService
     {
@@ -56,10 +56,6 @@ namespace TeachMe.web
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
             };
 
             // Configure user lockout defaults

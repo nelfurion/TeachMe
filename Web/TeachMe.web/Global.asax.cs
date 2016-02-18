@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using TeachMe.Web;
+using Owin;
+using Microsoft.Owin;
+using System.Web.Mvc;
+using TeachMe.Web.App_Start;
 
-namespace TeachMe.web
+namespace TeachMe.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -18,6 +21,7 @@ namespace TeachMe.web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DatabaseConfig.Initialize();
+            AutoMapperConfig.RegisterMappings("TeachMe.Web");
         }
     }
 }

@@ -27,8 +27,6 @@ namespace TeachMe.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public IDbSet<UserType> UserTypes { get; set; }
-
         public IDbSet<Lesson> Lessons { get; set; }
 
         public IDbSet<Ticket> Tickets { get; set; }

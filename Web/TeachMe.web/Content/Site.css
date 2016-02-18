@@ -57,3 +57,7 @@ a, a:active, a:hover, a:visited, a.selected {
 #subheader-fight {
     background-color: #440427;
 }
+
+.page-button {
+    color: black;
+}

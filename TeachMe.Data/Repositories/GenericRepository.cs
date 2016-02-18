@@ -89,7 +89,15 @@
 
         public int SaveChanges()
         {
-            return this.Context.SaveChanges();
+            try
+            {
+                return this.Context.SaveChanges();
+            }
+            catch(Exception e)
+            {
+
+            }
+            return 0;
         }
 
         public void Dispose()

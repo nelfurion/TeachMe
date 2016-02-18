@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{92CEA1FD-27AF-4E2F-988E-5439678D5454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachMe.web", "Web\TeachMe.web\TeachMe.web.csproj", "{5FCA0C6A-253F-4B74-BDC3-06F4509CA31F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachMe.Web", "Web\TeachMe.web\TeachMe.Web.csproj", "{5FCA0C6A-253F-4B74-BDC3-06F4509CA31F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{45E8815E-290D-484E-8889-9466E2000411}"
 EndProject
