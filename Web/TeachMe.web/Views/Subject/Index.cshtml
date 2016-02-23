@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<ul>
+    @{ 
+        for (int i = 0; i < ViewBag.Subjects.Count; i++)
+        {
+            string subjectName = @Html.Raw(ViewBag.Subjects[i].Name).ToString();
+            <li>@Html.ActionLink(subjectName, "All", "Lesson", new { subject = subjectName }, new { @class = "subjects-list-item" })</li>
+           }
+    }
+</ul>

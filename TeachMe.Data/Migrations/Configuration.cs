@@ -41,7 +41,17 @@
 
             if (!context.Lessons.Any())
             {
-                seeder.SeedLessons();
+                var hasher = new PasswordHasher();
+                var passwordHash = hasher.HashPassword("123456");
+                var editor = new User
+                {
+                    UserName = "pesho 2",
+                    PasswordHash = passwordHash
+                };
+
+                seeder.SeedLessons(editor, context.Subjects.First());
+                seeder.SeedLessons(editor, context.Subjects.ToList()[1]);
+                seeder.SeedLessons(editor, context.Subjects.ToList()[2]);
             }
 
             try

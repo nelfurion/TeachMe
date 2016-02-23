@@ -21,6 +21,8 @@ namespace TeachMe.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DatabaseConfig.Initialize();
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new RazorViewEngine());
             AutoMapperConfig.RegisterMappings("TeachMe.Web");
         }
     }

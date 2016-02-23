@@ -61,3 +61,7 @@ a, a:active, a:hover, a:visited, a.selected {
 .page-button {
     color: black;
 }
+
+.subjects-list-item {
+    color: black;
+}

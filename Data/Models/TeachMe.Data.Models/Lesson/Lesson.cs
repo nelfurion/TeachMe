@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Common;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System;
 
     public class Lesson
     {
@@ -18,8 +20,11 @@
         [Required]
         public string Name { get; set; }
 
+        [ForeignKey("Creator")]
+        public string UserId { get; set; }
+
         [Required]
-        public User Creator { get; set; }
+        public virtual User Creator { get; set; }
 
         [Required]
         [MaxLength(Constants.LessonMaxLength)]
@@ -29,11 +34,18 @@
         
         public int Grade { get; set; }
 
+        [ForeignKey("Subject")]
         public int SubjectId { get; set; }
 
         [Required]
-        public Subject Subject { get; set; }
+        public virtual Subject Subject { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public int RatingId { get; set; }
+
+        public virtual Rating Rating { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

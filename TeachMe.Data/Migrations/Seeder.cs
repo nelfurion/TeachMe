@@ -38,22 +38,9 @@ namespace TeachMe.Data.Migrations
             this.Context.SaveChanges();
         }
 
-        public void SeedLessons()
+        public void SeedLessons(User editor, Subject subject)
         {
-            var hasher = new PasswordHasher();
-            var passwordHash = hasher.HashPassword("123456");
-
-            var editor = new User
-            {
-                UserName = "pesho 2",
-                PasswordHash = passwordHash
-            };
-
-            this.Context.Users.Add(editor);
-
-            var subject = this.Context.Subjects.First();
-
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 var lesson = new Lesson
                 {
@@ -61,7 +48,8 @@ namespace TeachMe.Data.Migrations
                     Creator = editor,
                     Grade = 10,
                     Subject = subject,
-                    Name = "Matrices " + i.ToString()
+                    Name = subject.Name + " " + i.ToString(),
+                    CreatedOn = DateTime.UtcNow
                 };
 
                 var edit = new Edit
