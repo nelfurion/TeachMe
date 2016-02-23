@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @RenderSection("styles", false)
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -17,15 +18,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("TeachMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("TeachMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand navigation-link" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Subjects", "Index", "Subject")</li>
-                    <li>@Html.ActionLink("All Lessons", "All", "Lesson")</li>
-                    <li>@Html.ActionLink("Feedback", "Create", "Feedback")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("Subjects", "Index", "Subject", new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("All Lessons", "All", "Lesson", new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("All Lessons", "All", "Lesson", new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("Feedback", "Create", "Feedback", new { @class = "navigation-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

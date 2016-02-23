@@ -219,8 +219,10 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\LessonViewModels\LessonCommentViewModel.cs" />
     <Compile Include="ViewModels\LessonViewModels\LessonDetailsViewModel.cs" />
     <Compile Include="ViewModels\LessonViewModels\LessonsListViewModel.cs" />
+    <Compile Include="ViewModels\LessonViewModels\LessonTableDataViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -238,6 +240,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\default_profile_pic.jpg" />
+    <Content Include="Content\lesson-details.css" />
+    <Content Include="Content\lib\quill\quill.base.css" />
+    <Content Include="Content\lib\quill\quill.snow.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -255,6 +261,7 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\editor.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -262,6 +269,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\quill\quill.js" />
+    <Content Include="Scripts\lib\quill\quill.min.js" />
+    <Content Include="Scripts\lib\textAngular\textAngular-rangy.min.js" />
+    <Content Include="Scripts\lib\textAngular\textAngular-sanitize.js" />
+    <Content Include="Scripts\lib\textAngular\textAngular-sanitize.min.js" />
+    <Content Include="Scripts\lib\textAngular\textAngular.js" />
+    <Content Include="Scripts\lib\textAngular\textAngular.min.js" />
+    <Content Include="Scripts\lib\textAngular\textAngularSetup.js" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -296,7 +312,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
-    <Content Include="Views\Jokes\ById.cshtml" />
+    <Content Include="Views\Lesson\All.cshtml" />
+    <Content Include="Views\Lesson\Details.cshtml" />
+    <Content Include="Views\Feedback\All.cshtml" />
+    <Content Include="Views\Feedback\Create.cshtml" />
+    <Content Include="Views\Shared\CommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

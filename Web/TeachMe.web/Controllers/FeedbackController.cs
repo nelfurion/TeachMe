@@ -1,19 +1,17 @@
-﻿using AutoMapper;
-using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using TeachMe.Data.Models;
-using TeachMe.Data.Services.Contracts;
-using TeachMe.Web.Models;
-
-namespace TeachMe.Web.Controllers
+﻿namespace TeachMe.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using Data.Models;
+    using Data.Services.Contracts;
+    using Microsoft.AspNet.Identity;
+    using Models;
+
     [Authorize]
-    public class FeedbackController : Controller
+    public class FeedbackController : BaseController
     {
         private ITicketsService ticketsService;
 
@@ -25,38 +23,38 @@ namespace TeachMe.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
         public async Task<ActionResult> Create(CreateTicketViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                return View(model);
+                return this.View(model);
             }
 
-            Ticket newTicket = Mapper.Map<Ticket>(model);
+            Ticket newTicket = this.Mapper.Map<Ticket>(model);
             newTicket.CreatedOn = DateTime.UtcNow;
             newTicket.CreatorId = this.User.Identity.GetUserId();
 
             this.ticketsService.Add(newTicket);
 
-            return RedirectToAction("Index", "Home", new { area = "" });
+            return this.RedirectToAction("Index", "Home", new { area = "" });
 
         }
 
         [HttpGet]
         public async Task<ActionResult> All(int skip = 0, int take = 10)
         {
-            ViewBag.Tickets = this.ticketsService
+            this.ViewBag.Tickets = this.ticketsService
                 .All()
                 .OrderByDescending(t => t.CreatedOn)
                 .Skip(skip * take)
                 .Take(take)
                 .ToList();
 
-            return View();
+            return this.View();
         }
     }
 }

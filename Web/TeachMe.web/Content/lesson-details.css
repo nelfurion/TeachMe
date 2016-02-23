@@ -1,0 +1,16 @@
+﻿.comment-picture {
+    width:80px;
+    height: 80px;
+}
+
+.comment-odd {
+    background-color: aliceblue;
+}
+
+.ta-editor {
+        min-height: 300px;
+        height: auto;
+        overflow: auto;
+        font-family: inherit;
+        font-size: 100%;
+    }

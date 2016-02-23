@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using AutoMapper;
-    using TeachMe.Web.Infrastructure.Mapping;
     using Data.Models;
+    using Infrastructure.Mapping;
 
     public class LessonDetailsViewModel : IMapFrom<Lesson>, IHaveCustomMappings
     {
@@ -22,7 +22,7 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public List<Comment> Comments { get; set; }
+        public List<LessonCommentViewModel> Comments { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

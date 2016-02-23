@@ -41,6 +41,11 @@
                 seeder.SeedSubjects();
             }
 
+            if (!context.Comments.Any())
+            {
+                seeder.SeedComments();
+            }
+
             if (!context.Lessons.Any())
             {
                 var hasher = new PasswordHasher();

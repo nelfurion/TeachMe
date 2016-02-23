@@ -1,20 +1,18 @@
 ﻿namespace TeachMe.Data.Models
 {
-    using Common;
-    using TeachMe.Data.Models;
     using System.ComponentModel.DataAnnotations;
+    using Common;
+    using Data.Common.Models;
 
-    public class Comment
+    public class Comment : BaseModel<int>
     {
-        public int Id { get; set; }
-
         public int LessonId { get; set; }
 
         [Required]
-        public Lesson Lesson { get; set; }
+        public virtual Lesson Lesson { get; set; }
 
         [Required]
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         [Required]
         [MinLength(Constants.CommentMinLength)]

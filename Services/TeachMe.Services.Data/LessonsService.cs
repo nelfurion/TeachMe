@@ -1,9 +1,10 @@
 ﻿namespace TeachMe.Data.Services
 {
     using System.Linq;
+    using Common;
     using Contracts;
     using Models;
-    using TeachMe.Data.Common;
+
     public class LessonsService : ILessonsService
     {
         private IDbRepository<Lesson> lessons;
@@ -13,9 +14,13 @@
             this.lessons = lessons;
         }
 
-        public IQueryable<Lesson> GetAll()
+        public IQueryable<Lesson> GetAll(int skip = 0, int take = 10)
         {
-            return lessons.All();
+            return this.lessons
+                .All()
+                .OrderByDescending(l => l.CreatedOn)
+                    .Skip(skip * take)
+                    .Take(take);
         }
 
         public Lesson GetById(int id)
@@ -25,9 +30,27 @@
                 .FirstOrDefault(l => l.Id == id);
         }
 
+        public Lesson GetBySubjectAndName(string subject, string name)
+        {
+            return this.lessons
+                .All()
+                .FirstOrDefault(l => l.Subject.Name == subject &&
+                    l.Name == name);
+        }
+
         public int GetCount()
         {
-            return lessons.All().Count();
+            return this.lessons
+                .All()
+                .Count();
+        }
+
+        public int GetCountBySubject(string subject)
+        {
+            return this.lessons
+                .All()
+                .Where(l => l.Subject.Name.Contains(subject))
+                .Count();
         }
     }
 }

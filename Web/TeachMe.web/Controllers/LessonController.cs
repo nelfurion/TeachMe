@@ -1,6 +1,6 @@
 ﻿namespace TeachMe.Web.Controllers
 {
-    using System.Linq;
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using Data.Services.Contracts;
     using ViewModels.LessonViewModels;
@@ -21,49 +21,29 @@
             return this.View();
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string subject, string name)
         {
-            var selectedLesson = this.lessonsService.GetById(id);
+            if (this.ModelState.IsValid)
+            {
+                var selectedLesson = this.lessonsService.GetBySubjectAndName(subject, name);
 
-           
+                var viewModel = this.Mapper.Map<LessonDetailsViewModel>(selectedLesson);
 
-            return this.View();
+                return this.View(viewModel);
+            }
+
+            return this.RedirectToAction("All");
         }
 
         [HttpGet]
-        public ActionResult All(string subject, int take = 10, int skip = 0)
+        public ActionResult All(string subject = "", int take = 10, int skip = 0)
         {
             var viewModel = new LessonsListViewModel();
+            var lessons = this.lessonsService.GetAll(skip, take);
+            viewModel.PagesCount = this.lessonsService.GetCountBySubject(subject) / take;
+            viewModel.Lessons = this.Mapper.Map<List<LessonTableDataViewModel>>(lessons);
 
-            if (!string.IsNullOrEmpty(subject))
-            {
-                var lessons = this.lessonsService
-                    .GetAll()
-                    .Where(l => l.Subject.Name == subject);
-
-                viewModel.PagesCount = lessons.Count() / take > 5 ? 5 : lessons.Count() / take;
-
-                viewModel.Lessons = lessons
-                    .OrderByDescending(l => l.CreatedOn)
-                    .Skip(skip * take)
-                    .Take(take)
-                    .ToList();
-            }
-            else
-            {
-                var lessons = this.lessonsService
-                    .GetAll();
-
-                viewModel.PagesCount = lessons.Count() / take > 5 ? 5 : lessons.Count() / take ;
-
-                viewModel.Lessons = lessons
-                    .OrderByDescending(l => l.CreatedOn)
-                    .Skip(skip * take)
-                    .Take(take)
-                    .ToList();
-            }
-
-            return View(viewModel);
+            return this.View(viewModel);
         }
     }
 }

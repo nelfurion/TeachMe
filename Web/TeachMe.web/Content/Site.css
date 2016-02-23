@@ -36,7 +36,7 @@ textarea {
 
 a, a:active, a:hover, a:visited, a.selected {
     text-decoration: none;
-    color: white;
+    color: dodgerblue;
 }
 
 .subheader {
@@ -64,4 +64,8 @@ a, a:active, a:hover, a:visited, a.selected {
 
 .subjects-list-item {
     color: black;
+}
+
+.navigation-link, .navbar-brand {
+    color: white;
 }

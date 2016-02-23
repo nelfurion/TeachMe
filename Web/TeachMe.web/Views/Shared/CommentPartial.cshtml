@@ -1,0 +1,14 @@
+﻿@model TeachMe.Web.ViewModels.LessonViewModels.LessonCommentViewModel
+
+<div class="media">
+    <div class="media-body">
+        <h4 class="media-heading pull-right">@Model.Creator</h4>
+        <p>@Model.Content</p>
+        <span class="pull-right">@Model.CreatedOn.Date.ToShortDateString()</span>
+    </div>
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object comment-picture" src="~/Content/Images/default_profile.png" alt="Avatar">
+        </a>
+    </div>
+</div>
