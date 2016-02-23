@@ -2,9 +2,10 @@
 {
     using System.Linq;
     using System.Web.Mvc;
-    using TeachMe.Data.Services.Contracts;
+    using Data.Services.Contracts;
     using ViewModels.LessonViewModels;
-    public class LessonController : Controller
+
+    public class LessonController : BaseController
     {
         private ILessonsService lessonsService;
 
@@ -17,18 +18,26 @@
         public ActionResult Index()
         {
 
-            return View();
+            return this.View();
+        }
+
+        public ActionResult Details(int id)
+        {
+            var selectedLesson = this.lessonsService.GetById(id);
+
+           
+
+            return this.View();
         }
 
         [HttpGet]
         public ActionResult All(string subject, int take = 10, int skip = 0)
         {
             var viewModel = new LessonsListViewModel();
-            
 
             if (!string.IsNullOrEmpty(subject))
             {
-                var lessons = lessonsService
+                var lessons = this.lessonsService
                     .GetAll()
                     .Where(l => l.Subject.Name == subject);
 
@@ -42,7 +51,7 @@
             }
             else
             {
-                var lessons = lessonsService
+                var lessons = this.lessonsService
                     .GetAll();
 
                 viewModel.PagesCount = lessons.Count() / take > 5 ? 5 : lessons.Count() / take ;

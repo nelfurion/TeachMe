@@ -1,27 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using TeachMe.Data.Services.Contracts;
-
-namespace TeachMe.Web.Controllers
+﻿namespace TeachMe.Web.Controllers
 {
-    public class HomeController : Controller
+    using System;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using Data.Services.Contracts;
+    using Microsoft.AspNet.Identity.Owin;
+
+    public class HomeController : BaseController
     {
         private const string StatisticsCountKey = "StatisticsCount";
-        private IUsersService usersService;
         private IBattlesService battlesService;
         private ILessonsService lessonsService;
 
         public HomeController(
-            IUsersService usersService,
             IBattlesService battlesService,
             ILessonsService lessonsService)
         {
             this.battlesService = battlesService;
-            this.usersService = usersService;
             this.lessonsService = lessonsService;
+        }
+
+        private ApplicationUserManager userManager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return this.userManager ?? this.Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+
+            private set
+            {
+                this.userManager = value;
+            }
         }
 
         public ActionResult Index()
@@ -33,7 +45,7 @@ namespace TeachMe.Web.Controllers
                 stats = new Statistics();
                 stats.BattlesCount = battlesService.GetCount();
                 stats.LessonsCount = lessonsService.GetCount();
-                stats.UsersCount = usersService.GetCount();
+                stats.UsersCount = this.UserManager.Users.Count();
 
                 this.HttpContext.Cache.Add(StatisticsCountKey, stats, null, DateTime.UtcNow.AddHours(1), TimeSpan.Zero, System.Web.Caching.CacheItemPriority.Default, null);
             }
@@ -48,7 +60,7 @@ namespace TeachMe.Web.Controllers
         [OutputCache(Duration = 60 * 60)]
         public ActionResult GetUsersCount()
         {
-            
+
             return View();
         }
 

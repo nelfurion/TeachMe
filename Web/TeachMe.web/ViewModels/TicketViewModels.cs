@@ -1,7 +1,7 @@
 ﻿namespace TeachMe.Web.Models
 {
-    using Infrastructure.Mappings;
-    using TeachMe.Data.Models;
+    using TeachMe.Web.Infrastructure.Mapping;
+    using Data.Models;
 
     public class CreateTicketViewModel : IMapFrom<Ticket>
     {
