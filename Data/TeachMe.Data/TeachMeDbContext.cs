@@ -10,7 +10,8 @@
 
     using Models;
     using TeachMe.Data.Models;
-
+    using System.Data.Entity.ModelConfiguration;
+    using System.ComponentModel.DataAnnotations.Schema;
     public class TeachMeDbContext : IdentityDbContext<ApplicationUser>
     {
         public TeachMeDbContext()
@@ -32,7 +33,7 @@
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
-        }
+    }
 
         public IDbSet<Lesson> Lessons { get; set; }
 

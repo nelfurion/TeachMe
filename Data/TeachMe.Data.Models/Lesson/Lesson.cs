@@ -19,7 +19,7 @@
         public string Name { get; set; }
 
         [ForeignKey("Creator")]
-        public string UserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         [Required]
         public virtual ApplicationUser Creator { get; set; }
@@ -30,6 +30,7 @@
 
         public virtual ICollection<Edit> Edits { get; set; }
 
+        [Range(8,12)]
         public int Grade { get; set; }
 
         [ForeignKey("Subject")]
@@ -37,10 +38,6 @@
 
         [Required]
         public virtual Subject Subject { get; set; }
-
-        public int RatingId { get; set; }
-
-        public virtual Rating Rating { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
     }

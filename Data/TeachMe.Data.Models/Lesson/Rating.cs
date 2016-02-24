@@ -1,15 +1,9 @@
 ﻿namespace TeachMe.Data.Models
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+    using Common.Models;
 
-    public class Rating
+    public class Rating : BaseModel<int>
     {
-        public int Id { get; set; }
-
-        [Key, ForeignKey("Lesson")]
-        public int LessonId { get; set; }
-
         public virtual Lesson Lesson { get; set; }
 
         public int Value { get; set; }

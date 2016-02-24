@@ -1,0 +1,58 @@
+﻿@model TeachMe.Web.ViewModels.LessonViewModels.LessonsListViewModel
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Grade</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Lessons.Count; i++)
+            {
+                var lessonName = Model.Lessons[i].Name;
+                if (i % 2 != 0)
+                {
+                    <tr class="table-info">
+                        <td>@Html.ActionLink(lessonName, "Details", new { subject = Model.Lessons[i].Subject, name = lessonName })</td>
+                        <td>@Html.Raw(Model.Lessons[i].Subject)</td>
+                        <td>@Html.Raw(Model.Lessons[i].Grade)</td>
+                        <td>@Html.Raw(Model.Lessons[i].Creator)</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>@Html.ActionLink(lessonName, "Details", new { subject = Model.Lessons[i].Subject, name = lessonName })</td>
+                        <td>@Html.Raw(Model.Lessons[i].Subject)</td>
+                        <td>@Html.Raw(Model.Lessons[i].Grade)</td>
+                        <td>@Html.Raw(Model.Lessons[i].Creator)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    @{
+        //var search = Request.Params["search"];
+        //var orderBy = Request.Params["orderBy"];
+
+        var lastSkip = Request.Params["skip"] != null ? int.Parse(Request.Params["skip"]) : 0;
+        var previousPageSkip = lastSkip - 1 > 0 ? lastSkip - 1 : 0;
+        var nextPageSkip = lastSkip + 1 >= Model.PagesCount ? lastSkip : lastSkip + 1;
+
+
+        @Html.ActionLink("<-", "Index", new { /*search = search, orderBy = orderBy,*/ skip = previousPageSkip }, new { @class = "btn btn-info" });
+            for (int i = 1; i <= Model.PagesCount; i++)
+            {
+            @Html.ActionLink(i.ToString(), "Index", new { skip = i - 1 }, new { @class = "btn btn-info" })
+        }
+
+        @Html.ActionLink("->", "Index", new { skip = nextPageSkip }, new { @class = "btn btn-info" });
+    }
+</div>
+

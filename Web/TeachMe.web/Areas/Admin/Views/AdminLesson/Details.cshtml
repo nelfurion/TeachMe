@@ -1,0 +1,43 @@
+﻿@model TeachMe.Web.ViewModels.LessonViewModels.LessonDetailsViewModel
+
+@section Styles
+{
+    <link href="~/Content/lesson-details.css" type="text/css" rel="stylesheet"/>
+}
+
+@{
+    AjaxOptions updateCommentsI = new AjaxOptions
+    {
+        OnComplete = "updateComments"
+    };
+}
+
+<div class="container">
+    <span id="@Model.Lesson.Id" class="id-holder" style="display:none;"></span>
+    <h2>@Model.Lesson.Name</h2>
+    <div class="row">
+        <div class="col-md-2 pull-left">
+            <span>@Model.Lesson.Subject</span>
+        </div>
+        <div class="col-md-2 pull-right">
+            <span>created By: @Model.Lesson.Creator,</span>
+            <p>on: @Model.Lesson.CreatedOn.Date.ToShortDateString()</p>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-10 text-justify">
+            @Model.Lesson.Content
+        </div>
+    </div>
+
+    <div id="editor-container" class="row">
+        <div id="editor" class="row">
+        </div>
+        <button id="btn-comment" class="btn btn-info pull-right">Comment</button>
+    </div>
+</div>
+
+
+
+

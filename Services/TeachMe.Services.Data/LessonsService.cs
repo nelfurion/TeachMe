@@ -4,14 +4,16 @@
     using Common;
     using Contracts;
     using Models;
-
+    using System;
     public class LessonsService : ILessonsService
     {
         private IDbRepository<Lesson> lessons;
+        private IDbRepository<Rating> ratings;
 
-        public LessonsService(IDbRepository<Lesson> lessons)
+        public LessonsService(IDbRepository<Lesson> lessons, IDbRepository<Rating> ratings)
         {
             this.lessons = lessons;
+            this.ratings = ratings;
         }
 
         public IQueryable<Lesson> GetAll(int skip = 0, int take = 10)
@@ -51,6 +53,14 @@
                 .All()
                 .Where(l => l.Subject.Name.Contains(subject))
                 .Count();
+        }
+
+        public void Create(Lesson lesson)
+        {
+            lesson.CreatedOn = DateTime.UtcNow;
+
+            this.lessons.Add(lesson);
+            this.lessons.Save();
         }
     }
 }

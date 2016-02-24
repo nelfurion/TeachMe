@@ -7,6 +7,7 @@
     using ViewModels.LessonViewModels;
     using System.Linq;
     using ViewModels.CommentViewModels;
+
     public class LessonController : BaseController
     {
         private const int InitialCommentSkip = 0;
