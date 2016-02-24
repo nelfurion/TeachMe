@@ -1,5 +1,6 @@
 ﻿namespace TeachMe.Data.Services
 {
+    using System;
     using System.Linq;
     using Contracts;
     using Models;
@@ -11,7 +12,7 @@
 
         public TicketsService(IDbRepository<Ticket> tickets)
         {
-            this.tickets = tickets;            
+            this.tickets = tickets;
         }
 
         public void Add(Ticket ticket)
@@ -20,9 +21,19 @@
             this.tickets.Save();
         }
 
-        public IQueryable<Ticket> All()
+        public IQueryable<Ticket> All(int skip, int take)
         {
-            return this.tickets.All();
+            return this.tickets.All()
+                .OrderByDescending(t => t.CreatedOn)
+                .Skip(skip * take)
+                .Take(take);
+        }
+
+        public int GetCount()
+        {
+            return this.tickets
+                .All()
+                .Count();
         }
     }
 }

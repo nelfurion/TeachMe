@@ -1,10 +1,8 @@
 ﻿namespace TeachMe.Web.Controllers
 {
     using System;
-    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
-    using AutoMapper;
     using Data.Models;
     using Data.Services.Contracts;
     using Microsoft.AspNet.Identity;
@@ -27,7 +25,7 @@
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(CreateTicketViewModel model, string returnUrl)
+        public ActionResult Create(CreateTicketViewModel model, string returnUrl)
         {
             if (!this.ModelState.IsValid)
             {
@@ -43,19 +41,6 @@
 
             return this.RedirectToAction("Index", "Home", new { area = "" });
 
-        }
-
-        [HttpGet]
-        public async Task<ActionResult> All(int skip = 0, int take = 10)
-        {
-            this.ViewBag.Tickets = this.ticketsService
-                .All()
-                .OrderByDescending(t => t.CreatedOn)
-                .Skip(skip * take)
-                .Take(take)
-                .ToList();
-
-            return this.View();
         }
     }
 }
