@@ -6,7 +6,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
-
+    using System.Collections.Generic;
     public class Seeder
     {
         public Seeder(TeachMeDbContext context)
@@ -117,57 +117,58 @@
 
         public void SeedUsers()
         {
+            const string UserName = "admin";
+            const string RoleName = "Admin";
+
             var hasher = new PasswordHasher();
             var passwordHash = hasher.HashPassword("123456");
 
-            var roles = this.Context.Roles;
+            var adminRole = new IdentityRole { Name = RoleName, Id = Guid.NewGuid().ToString() };
+            var editorRole = new IdentityRole { Name = "Editor", Id = Guid.NewGuid().ToString() };
+
+            this.Context.Roles.Add(adminRole);
+            this.Context.Roles.Add(editorRole);
 
             var admin = new ApplicationUser
             {
-                UserName = "gosho",
+                UserName = "admin@teachme.com",
+                Email = "admin@teachme.com",
                 PasswordHash = passwordHash,
+                Lessons = new HashSet<Lesson>(),
+                Comments = new HashSet<Comment>(),
+                SecurityStamp = Guid.NewGuid().ToString()
             };
 
-            admin.Roles.Add(
-                new IdentityUserRole
-                {
-                    RoleId = roles.FirstOrDefault(r => r.Name == "Admin").Id,
-                    UserId = admin.Id
-                });
+            admin.Roles.Add(new IdentityUserRole { RoleId = adminRole.Id, UserId = admin.Id });
 
             var editor = new ApplicationUser
             {
-                UserName = "pesho",
-                PasswordHash = passwordHash
+                UserName = "editor@teachme.com",
+                Email = "editor@teachme.com",
+                PasswordHash = passwordHash,
+                SecurityStamp = Guid.NewGuid().ToString()
             };
-
-            editor.Roles.Add(
-                new IdentityUserRole
-                {
-                    RoleId = roles.FirstOrDefault(r => r.Name == "Editor").Id,
-                    UserId = admin.Id
-                });
+            
+            editor.Roles.Add(new IdentityUserRole { RoleId = editorRole.Id, UserId = admin.Id });
 
             var normal = new ApplicationUser
             {
-                UserName = "anastas",
-                PasswordHash = passwordHash
+                UserName = "pesho@teachme.com",
+                Email = "pesho@teachme.com",
+                PasswordHash = passwordHash,
+                SecurityStamp = Guid.NewGuid().ToString()
             };
 
-            normal.Roles.Add(
-                new IdentityUserRole
-                {
-                    RoleId = roles.FirstOrDefault(r => r.Name == "Normal").Id,
-                    UserId = admin.Id
-                }
-            );
+            this.Context.Users.Add(admin);
+            this.Context.Users.Add(editor);
+            this.Context.Users.Add(normal);
 
             this.Context.SaveChanges();
         }
 
         public void SeedRoles()
         {
-            IdentityRole adminRole = new IdentityRole("Admin");
+            /*IdentityRole adminRole = new IdentityRole("Admin");
             IdentityRole editorRole = new IdentityRole("Editor");
             IdentityRole normalRole = new IdentityRole("Normal");
 
@@ -175,7 +176,7 @@
             this.Context.Roles.Add(editorRole);
             this.Context.Roles.Add(normalRole);
 
-            //this.Context.SaveChanges();
+            this.Context.SaveChanges();*/
         }
 
         public void SeedBattlesAndTeams()

@@ -14,5 +14,7 @@
         Lesson GetBySubjectAndName(string subject, string name);
 
         Lesson GetById(int id);
+
+        void Create(Lesson lesson);
     }
 }

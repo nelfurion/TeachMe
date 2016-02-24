@@ -26,7 +26,7 @@
                 seeder.SeedRoles();
             }
 
-            if (context.Users.Any())
+            if (!context.Users.Any())
             {
                 seeder.SeedUsers();
             }

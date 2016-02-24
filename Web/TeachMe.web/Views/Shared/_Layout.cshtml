@@ -26,8 +26,13 @@
                     <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "navigation-link" })</li>
                     <li>@Html.ActionLink("Subjects", "Index", "Subject", null, new { @class = "navigation-link" })</li>
                     <li>@Html.ActionLink("All Lessons", "All", "Lesson", null, new { @class = "navigation-link" })</li>
-                    <li>@Html.ActionLink("All Lessons", "All", "Lesson", null, new { @class = "navigation-link" })</li>
                     <li>@Html.ActionLink("Feedback", "Create", "Feedback", null, new { @class = "navigation-link" })</li>
+                    @{
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Admin Panel", "Index", "AdminHome", new { area = "Admin" }, new { @class = "navigation-link" })</li>
+                        }
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

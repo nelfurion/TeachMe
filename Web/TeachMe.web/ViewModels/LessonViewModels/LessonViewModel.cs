@@ -27,7 +27,6 @@
         {
             configuration.CreateMap<Lesson, LessonViewModel>()
                 .ForMember(l => l.Creator, opts => opts.MapFrom(m => m.Creator.UserName))
-                .ForMember(l => l.Rating, opts => opts.MapFrom(m => m.Rating.Value))
                 .ForMember(l => l.Subject, opts => opts.MapFrom(m => m.Subject.Name));
         }
     }
