@@ -6,88 +6,146 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
 }
 
+@{
+    AjaxOptions updateCommentsI = new AjaxOptions
+    {
+        OnComplete = "updateComments"
+    };
+}
+
 <div class="container">
-    <span id="@Model.Id" class="id-holder" style="display:none;"></span>
-    <h2>@Model.Name</h2>
+    <span id="@Model.Lesson.Id" class="id-holder" style="display:none;"></span>
+    <h2>@Model.Lesson.Name</h2>
     <div class="row">
         <div class="col-md-2 pull-left">
-            <span>@Model.Subject</span>
-            <p>@Model.Rating</p>
+            <span>@Model.Lesson.Subject</span>
+            <p>@Model.Lesson.Rating</p>
         </div>
         <div class="col-md-2 pull-right">
-            <span>created By: @Model.Creator,</span>
-            <p>on: @Model.CreatedOn.Date.ToShortDateString()</p>
+            <span>created By: @Model.Lesson.Creator,</span>
+            <p>on: @Model.Lesson.CreatedOn.Date.ToShortDateString()</p>
         </div>
     </div>
 
     <div class="row text-center">
         <div class="col-md-10 text-justify">
-            @Model.Content
+            @Model.Lesson.Content
         </div>
     </div>
 
-    <div class="row">
+    <div id="editor-container" class="row">
         <div id="editor" class="row">
         </div>
-        <button id="btn-comment" class="btn btn-info">Comment</button>
+        <button id="btn-comment" class="btn btn-info pull-right">Comment</button>
     </div>
     
 
     <div id="comments-container">
-        @for (int i = 0; i < Model.Comments.Count; i++)
-        {
-            if (i % 2 != 0)
+        <div id="comments">
+            
+            @for (int i = 0; i < Model.Comments.Count; i++)
             {
-                <div class="comment-odd comment">
-                    @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
-                </div>
+                if (i % 2 != 0)
+                {
+                    <div class="comment-odd comment">
+                        @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
+                    </div>
+                }
+                else
+                {
+                    <div class="comment">
+                        @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
+                    </div>
+                }
             }
-            else
-            {
-                <div class="comment">
-                    @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
-                </div>
+        </div>
+        <div class="pull-right">
+            @{
+                var lastSkip = Request.Params["skip"] != null ? int.Parse(Request.Params["skip"]) : 0;
+                var previousPageSkip = lastSkip - 1 > 0 ? lastSkip - 1 : 0;
+                var nextPageSkip = lastSkip + 1 >= Model.CommentPagesCount ? lastSkip : lastSkip + 1;
+
+                @Ajax.ActionLink(
+                    "<-",
+                    "CommentPagePartial",
+                    "Comment",
+                    new { skip = previousPageSkip },
+                    new AjaxOptions { OnSuccess = "updateComments" },
+                    new { @class = "btn btn-info" })
+                for (int i = 1; i <= Model.CommentPagesCount / 5; i++)
+                {
+                    @Ajax.ActionLink(
+                        i.ToString(),
+                        "CommentPagePartial",
+                        "Comment",
+                        new { lessonId = Model.Lesson.Id, skip = i - 1 },
+                        new AjaxOptions { OnSuccess = "updateComments" },
+                        new { @class = "btn btn-info" })
+                }
+                @Ajax.ActionLink(
+                    "->",
+                    "CommentPagePartial",
+                    "Comment",
+                    new { lessonId = Model.Lesson.Id, skip = nextPageSkip },
+                    new AjaxOptions { OnSuccess = "updateComments" },
+                    new { @class = "btn btn-info" })
             }
-        }
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#editor').summernote();
+            $('#summernote').summernote({
+                height: 300,
+                minHeight: 300,
+                maxHeight: 300,
+                focus: true
+            });
         });
 
         $('#btn-comment').on('click', function (e) {
-            alert("WAT 1");
-            alert($('.id-holder').first().attr('id'));
-            alert("WAT 2");
-            var markupStr = $('#editor').summernote('code');
-            var newComment = JSON.stringify({
-                "Content": markupStr,
-                "LessonId": $('.id-holder').first().attr('id')
-            });
-
-            console.log(newComment);
-
-            $.ajax({
-                url: '/comment/create',
-                type: 'POST',
-                contentType: 'application/json',
-                data: newComment
-            })
-            .done(function () {
-                alert("Comment Added");
-                console.log("success");
-            })
-            .fail(function() {
-                console.log("error");
-            })
-            .always(function() {
-                console.log("complete");
-            });
+            var editorContainer = $('#editor-container');
+            if (editorContainer.css('display') != 'none') {
+                var markupStr = $('#editor').summernote('code');
+                $.ajax({
+                    url: '/comment/create',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "Content": markupStr,
+                        "LessonId": $('.id-holder').first().attr('id')
+                    })
+                })
+                .done(function () {
+                    alert("Comment Added");
+                    console.log("success");
+                })
+                .fail(function () {
+                    console.log("error");
+                })
+                .always(function () {
+                    console.log("complete");
+                });
+            }
         });
+
+        function toggleEditor() {
+            var editorContainer = $('#editor-container');
+            if (editorContainer.css('display') != 'none') {
+                editorContainer.css('display', 'none');
+            } else {
+                editorContainer.css('display', 'block');
+            }
+        }
+
+        function updateComments(commentsResult) {
+            $('#comments').html(commentsResult);
+            console.log(commentsResult);
+        }
     </script>
 }
 

@@ -1,9 +1,9 @@
-﻿@model TeachMe.Web.ViewModels.LessonViewModels.LessonCommentViewModel
+﻿@model TeachMe.Web.ViewModels.CommentViewModels.CommentViewModel
 
 <div class="media">
     <div class="media-body">
-        <h4 class="media-heading pull-right">@Model.Creator</h4>
-        <p>@Model.Content</p>
+        <h4 class="media-heading pull-right">@Model.UserName</h4>
+        <p class="comment-content">@Model.Content</p>
         <span class="pull-right">@Model.CreatedOn.Date.ToShortDateString()</span>
     </div>
     <div class="media-right">

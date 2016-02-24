@@ -10,7 +10,9 @@
     using TeachMe.Web;
     using TeachMe.Web.Controllers;
     using TeachMe.Web.ViewModels.CommentViewModels;
-
+    using System.Linq;
+    using System.Text;
+    using System.Collections.Generic;
     public class CommentController : BaseController
     {
         private ICommentsService commentsService;
@@ -45,6 +47,25 @@
             }
 
             return this.Redirect(this.Request.UrlReferrer.AbsolutePath);
+        }
+
+        [HttpGet]
+        public ActionResult CommentPagePartial(int lessonId, int skip = 0, int take = 5)
+        {
+            var comments = this.commentsService.GetByLessonId(lessonId, skip, take).ToList();
+
+            var viewModel = new CommentPageViewModel()
+            {
+                CommentViewModels = new List<CommentViewModel>()
+            };
+
+            for (int i = 0; i < comments.Count; i++)
+            {
+                var commentViewModel = this.Mapper.Map<CommentViewModel>(comments[i]);
+                viewModel.CommentViewModels.Add(commentViewModel);
+            }
+
+            return this.View(viewModel);
         }
     }
 }

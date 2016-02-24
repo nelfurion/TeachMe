@@ -32,6 +32,7 @@ C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Autofac.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Autofac.Integration.Mvc.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\AutoMapper.dll
+C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Constants.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\EntityFramework.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\EntityFramework.SqlServer.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Glimpse.Ado.dll
@@ -66,6 +67,7 @@ C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\System.Web.WebPages.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\WebGrease.dll
+C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Constants.pdb
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\MvcTemplate.Data.Common.pdb
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\MvcTemplate.Data.Models.pdb
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\MvcTemplate.Data.pdb
@@ -99,5 +101,3 @@ C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\obj\Debug\TeachMe.Web.csprojResolveAssemblyReference.cache
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\obj\Debug\MvcTemplate.Web.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\obj\Debug\MvcTemplate.Web.pdb
-C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Constants.dll
-C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Constants.pdb

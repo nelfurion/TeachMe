@@ -3,16 +3,23 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Data.Services.Contracts;
+    using Services.Data.Contracts;
     using ViewModels.LessonViewModels;
-
+    using System.Linq;
+    using ViewModels.CommentViewModels;
     public class LessonController : BaseController
     {
+        private const int InitialCommentSkip = 0;
+        private const int InitialCommentTake = 5;
         private ILessonsService lessonsService;
+        private ICommentsService commentsService;
 
         public LessonController(
-            ILessonsService lessonsService)
+            ILessonsService lessonsService,
+            ICommentsService commentsService)
         {
             this.lessonsService = lessonsService;
+            this.commentsService = commentsService;
         }
 
         public ActionResult Index()
@@ -23,16 +30,21 @@
 
         public ActionResult Details(string subject, string name)
         {
-            if (this.ModelState.IsValid)
-            {
-                var selectedLesson = this.lessonsService.GetBySubjectAndName(subject, name);
+            var viewModel = new LessonDetailsViewModel();
 
-                var viewModel = this.Mapper.Map<LessonDetailsViewModel>(selectedLesson);
+            var selectedLesson = this.lessonsService.GetBySubjectAndName(subject, name);
+            viewModel.Lesson = this.Mapper.Map<LessonViewModel>(selectedLesson);
 
-                return this.View(viewModel);
-            }
+            var lessonComments = this.commentsService
+                .GetByLessonId(
+                    selectedLesson.Id,
+                    InitialCommentSkip,
+                    InitialCommentTake);
 
-            return this.RedirectToAction("All");
+            viewModel.Comments = this.Mapper.Map<List<CommentViewModel>>(lessonComments);
+            viewModel.CommentPagesCount = this.commentsService.GetCommentsCountByLessonId(selectedLesson.Id);
+
+            return this.View(viewModel);
         }
 
         [HttpGet]

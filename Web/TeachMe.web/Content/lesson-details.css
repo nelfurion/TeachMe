@@ -11,6 +11,12 @@
     background-color: aliceblue;
 }
 
-#comments-container, #editor {
+#comments-container, #edito, #editor-container {
     margin-top: 50px;
+}
+
+.comment-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }

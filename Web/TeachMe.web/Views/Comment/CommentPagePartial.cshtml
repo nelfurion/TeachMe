@@ -1,0 +1,6 @@
+﻿@model TeachMe.Web.ViewModels.CommentViewModels.CommentPageViewModel
+
+@for (int i = 0; i < Model.CommentViewModels.Count; i++)
+{
+    Html.Partial("CommentPartial", Model.CommentViewModels[i]);
+}
