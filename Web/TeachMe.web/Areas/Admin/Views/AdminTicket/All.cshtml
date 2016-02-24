@@ -15,17 +15,13 @@
                 if (i % 2 != 0)
                 {
                     <tr class="table-info">
-                        <td>@Html.Raw(Model.Tickets[i].Title)</td>
-                        <td>@Html.Raw(Model.Tickets[i].Creator)</td>
-                        <td>@Html.Raw(Model.Tickets[i].CreatedOn)</td>
+                        @Html.Partial("./_TicketRowPartial", Model.Tickets[i])
                     </tr>
                 }
                 else
                 {
                     <tr>
-                        <td>@Html.Raw(Model.Tickets[i].Title)</td>
-                        <td>@Html.Raw(Model.Tickets[i].Creator)</td>
-                        <td>@Html.Raw(Model.Tickets[i].CreatedOn)</td>
+                        @Html.Partial("./_TicketRowPartial", Model.Tickets[i])
                     </tr>
                 }
             }

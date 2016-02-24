@@ -1,0 +1,23 @@
+﻿@model TeachMe.Web.Areas.Admin.ViewModels.TicketViewModels.TicketDetailsViewModel
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>@Html.Raw(Model.Title)</h2>
+    </div>
+    <div class="col-md-4">
+        @Html.ActionLink("X","Close", new { id = Model.Id }, new { @class = "btn btn-warning" });
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>Created By: @Html.Raw(Model.Creator)</p>
+        <p>On: @Html.Raw(Model.CreatedOn.ToShortDateString())</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>@Html.Raw(Model.Content)</p>
+    </div>
+</div>

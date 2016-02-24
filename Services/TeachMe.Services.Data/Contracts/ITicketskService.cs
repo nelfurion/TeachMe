@@ -10,5 +10,9 @@
         IQueryable<Ticket> All(int skip, int take);
 
         int GetCount();
+
+        void Delete(int id);
+
+        Ticket GetById(int id);
     }
 }

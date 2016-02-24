@@ -16,6 +16,20 @@
             this.ticketsService = ticketsService;
         }
 
+        public ActionResult Close(int id)
+        {
+            this.ticketsService.Delete(id);
+            return this.RedirectToAction("All");
+        }
+
+        public ActionResult Details(int id)
+        {
+            var ticket = this.ticketsService.GetById(id);
+            var viewModel = this.Mapper.Map<TicketDetailsViewModel>(ticket);
+
+            return this.View(viewModel);
+        }
+
         [HttpGet]
         public ActionResult All(int skip = 0, int take = 10)
         {
