@@ -1,9 +1,8 @@
-﻿using System.Web;
-using System.Web.Mvc;
-
-namespace TeachMe.Web
+﻿namespace TeachMe.Web
 {
-    public class FilterConfig
+    using System.Web.Mvc;
+
+    public static class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {

@@ -1,0 +1,22 @@
+﻿.comment {
+    margin-bottom: 40px;
+}
+
+.comment-picture {
+    width:80px;
+    height: 80px;
+}
+
+.comment-odd {
+    background-color: aliceblue;
+}
+
+#comments-container, #edito, #editor-container {
+    margin-top: 50px;
+}
+
+.comment-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}

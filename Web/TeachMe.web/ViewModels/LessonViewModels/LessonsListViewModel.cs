@@ -1,12 +1,10 @@
-﻿
-using System.Collections.Generic;
-using TeachMe.Data.Models;
-
-namespace TeachMe.Web.ViewModels.LessonViewModels
+﻿namespace TeachMe.Web.ViewModels.LessonViewModels
 {
+    using System.Collections.Generic;
+
     public class LessonsListViewModel
     {
-        public List<Lesson> Lessons { get; set; }
+        public List<LessonTableDataViewModel> Lessons { get; set; }
 
         public int PagesCount { get; set; }
     }

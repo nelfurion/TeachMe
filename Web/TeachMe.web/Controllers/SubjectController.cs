@@ -16,7 +16,7 @@
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Subjects = this.subjectsService
+            this.ViewBag.Subjects = this.subjectsService
                 .GetAll()
                 .ToList();
             return View();
