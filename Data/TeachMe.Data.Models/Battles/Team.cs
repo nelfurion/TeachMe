@@ -13,6 +13,6 @@ namespace TeachMe.Data.Models
 
         public virtual ICollection<Player> Players { get; set; }
 
-        public Battle Battle { get; set; }
+        public virtual Battle Battle { get; set; }
     }
 }

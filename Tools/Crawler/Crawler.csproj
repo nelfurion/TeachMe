@@ -79,19 +79,19 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\TeachMe.Data.Common\TeachMe.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
-      <Name>MvcTemplate.Data.Common</Name>
+      <Name>TeachMe.Data.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\TeachMe.Data.Models\TeachMe.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>TeachMe.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\TeachMe.Data\TeachMe.Data.csproj">
       <Project>{7c950cdc-9587-4b65-a204-988efed17948}</Project>
-      <Name>MvcTemplate.Data</Name>
+      <Name>TeachMe.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\TeachMe.Services.Data\TeachMe.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>
-      <Name>MvcTemplate.Services.Data</Name>
+      <Name>TeachMe.Services.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

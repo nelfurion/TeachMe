@@ -51,6 +51,8 @@
             // app.UseFacebookAuthentication(
             // appId: "",
             // appSecret: "");
+
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
         }
     }
 }

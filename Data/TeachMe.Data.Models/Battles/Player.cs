@@ -13,10 +13,10 @@ namespace TeachMe.Data.Models
 
         public int UserId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public int TeamId { get; set; }
 
-        public Team Team { get; set; }
+        public virtual Team Team { get; set; }
     }
 }

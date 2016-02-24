@@ -1,8 +1,7 @@
 ﻿namespace TeachMe.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-    using Common;
-    using TeachMe.Data.Models;
+    using TeachMe.Common;
 
     public class Edit
     {
@@ -11,7 +10,7 @@
         public int LessonId { get; set; }
 
         [Required]
-        public Lesson Lesson { get; set; }
+        public virtual Lesson Lesson { get; set; }
 
         [Required]
         [MaxLength(Constants.LessonMaxLength)]

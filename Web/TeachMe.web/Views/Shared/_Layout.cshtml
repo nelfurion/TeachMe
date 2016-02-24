@@ -22,12 +22,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "navigation-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "navigation-link" })</li>
-                    <li>@Html.ActionLink("Subjects", "Index", "Subject", new { @class = "navigation-link" })</li>
-                    <li>@Html.ActionLink("All Lessons", "All", "Lesson", new { @class = "navigation-link" })</li>
-                    <li>@Html.ActionLink("All Lessons", "All", "Lesson", new { @class = "navigation-link" })</li>
-                    <li>@Html.ActionLink("Feedback", "Create", "Feedback", new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", null,  new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("Subjects", "Index", "Subject", null, new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("All Lessons", "All", "Lesson", null, new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("All Lessons", "All", "Lesson", null, new { @class = "navigation-link" })</li>
+                    <li>@Html.ActionLink("Feedback", "Create", "Feedback", null, new { @class = "navigation-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

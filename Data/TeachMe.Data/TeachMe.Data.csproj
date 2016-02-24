@@ -75,7 +75,7 @@
     </ProjectReference>
     <ProjectReference Include="..\TeachMe.Data.Models\TeachMe.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>TeachMe.Data.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace TeachMe.Data.Models.Common
+﻿namespace TeachMe.Common
 {
     public class Constants
     {

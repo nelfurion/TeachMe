@@ -3,9 +3,11 @@
 @section Styles
 {
     <link href="~/Content/lesson-details.css" type="text/css" rel="stylesheet"/>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
 }
 
 <div class="container">
+    <span id="@Model.Id" class="id-holder" style="display:none;"></span>
     <h2>@Model.Name</h2>
     <div class="row">
         <div class="col-md-2 pull-left">
@@ -17,44 +19,76 @@
             <p>on: @Model.CreatedOn.Date.ToShortDateString()</p>
         </div>
     </div>
+
     <div class="row text-center">
         <div class="col-md-10 text-justify">
             @Model.Content
         </div>
     </div>
-</div>
 
-<div>
-    @for (int i = 0; i < Model.Comments.Count; i++)
-    {
-        if (i % 2 != 0)
-        {
-            <div class="comment-odd">
-                @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
-            </div>
-        }
-        else
-        {
-            @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
-        }
+    <div class="row">
+        <div id="editor" class="row">
+        </div>
+        <button id="btn-comment" class="btn btn-info">Comment</button>
+    </div>
+    
 
-    }
+    <div id="comments-container">
+        @for (int i = 0; i < Model.Comments.Count; i++)
+        {
+            if (i % 2 != 0)
+            {
+                <div class="comment-odd comment">
+                    @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
+                </div>
+            }
+            else
+            {
+                <div class="comment">
+                    @Html.Partial("../Shared/CommentPartial", Model.Comments[i])
+                </div>
+            }
+        }
+    </div>
 </div>
 
 @section Scripts {
-    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js'></script>
-    <script src='../dist/textAngular-rangy.min.js'></script>
-    <script src='../dist/textAngular-sanitize.min.js'></script>
-    <script src='../dist/textAngular.min.js'></script>
-    <!--<script src="~/Scripts/moment.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('[data-utcdate]').each(function () {
-                var d = moment($(this).attr('data-utcdate'));
-                $(this).html(d.format());
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#editor').summernote();
+        });
+
+        $('#btn-comment').on('click', function (e) {
+            alert("WAT 1");
+            alert($('.id-holder').first().attr('id'));
+            alert("WAT 2");
+            var markupStr = $('#editor').summernote('code');
+            var newComment = JSON.stringify({
+                "Content": markupStr,
+                "LessonId": $('.id-holder').first().attr('id')
+            });
+
+            console.log(newComment);
+
+            $.ajax({
+                url: '/comment/create',
+                type: 'POST',
+                contentType: 'application/json',
+                data: newComment
+            })
+            .done(function () {
+                alert("Comment Added");
+                console.log("success");
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
             });
         });
-</script>-->
+    </script>
 }
 
 

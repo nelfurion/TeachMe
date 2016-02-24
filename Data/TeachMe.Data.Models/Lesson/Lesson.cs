@@ -1,12 +1,10 @@
 ﻿namespace TeachMe.Data.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using Common;
-    using TeachMe.Data.Common.Models;
-    using TeachMe.Data.Models;
+    using Common.Models;
+    using TeachMe.Common;
 
     public class Lesson : BaseModel<int>
     {

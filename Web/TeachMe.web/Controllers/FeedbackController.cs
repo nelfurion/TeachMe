@@ -34,7 +34,8 @@
                 return this.View(model);
             }
 
-            Ticket newTicket = this.Mapper.Map<Ticket>(model);
+            var newTicket = this.Mapper.Map<Ticket>(model);
+
             newTicket.CreatedOn = DateTime.UtcNow;
             newTicket.CreatorId = this.User.Identity.GetUserId();
 

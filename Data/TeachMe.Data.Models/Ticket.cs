@@ -2,17 +2,15 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using Common;
-    using TeachMe.Data.Common.Models;
-    using TeachMe.Data.Models;
-
+    using Common.Models;
+    using TeachMe.Common;
     public class Ticket : BaseModel<int>
-    {        
+    {
         [Required]
         public string CreatorId { get; set; }
 
         public string Title { get; set; }
-        
+
         public virtual ApplicationUser Creator { get; set; }
 
         [Required]

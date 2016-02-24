@@ -63,7 +63,6 @@
     <Compile Include="Battles\Battle.cs" />
     <Compile Include="Battles\Player.cs" />
     <Compile Include="Battles\Team.cs" />
-    <Compile Include="Common\Constants.cs" />
     <Compile Include="Lesson\Comment.cs" />
     <Compile Include="Lesson\Edit.cs" />
     <Compile Include="Lesson\Lesson.cs" />
@@ -87,6 +86,10 @@
     </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Constants\TeachMe.Common.csproj">
+      <Project>{566c570e-17d2-4b7a-ac1a-49d2b429d95f}</Project>
+      <Name>TeachMe.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeachMe.Data.Common\TeachMe.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
       <Name>TeachMe.Data.Common</Name>

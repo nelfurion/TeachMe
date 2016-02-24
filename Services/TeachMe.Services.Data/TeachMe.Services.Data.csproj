@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattlesService.cs" />
+    <Compile Include="CommentsService.cs" />
     <Compile Include="Contracts\IBattlesService.cs" />
+    <Compile Include="Contracts\ICommentsService.cs" />
     <Compile Include="Contracts\ILessonsService.cs" />
     <Compile Include="Contracts\ISubjectsService.cs" />
     <Compile Include="Contracts\ITicketskService.cs" />
@@ -61,11 +63,11 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Data\TeachMe.Data.Models\TeachMe.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>TeachMe.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeachMe.Services.Web\TeachMe.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
-      <Name>MvcTemplate.Services.Web</Name>
+      <Name>TeachMe.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

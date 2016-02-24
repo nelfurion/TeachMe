@@ -99,3 +99,5 @@ C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\obj\Debug\TeachMe.Web.csprojResolveAssemblyReference.cache
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\obj\Debug\MvcTemplate.Web.dll
 C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\obj\Debug\MvcTemplate.Web.pdb
+C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Constants.dll
+C:\Users\radostin\Desktop\ASP.NET-MVC-Template-master\Source\Web\TeachMe.Web\bin\Constants.pdb

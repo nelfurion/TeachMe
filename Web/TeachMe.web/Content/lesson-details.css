@@ -1,4 +1,8 @@
-﻿.comment-picture {
+﻿.comment {
+    margin-bottom: 40px;
+}
+
+.comment-picture {
     width:80px;
     height: 80px;
 }
@@ -7,10 +11,6 @@
     background-color: aliceblue;
 }
 
-.ta-editor {
-        min-height: 300px;
-        height: auto;
-        overflow: auto;
-        font-family: inherit;
-        font-size: 100%;
-    }
+#comments-container, #editor {
+    margin-top: 50px;
+}

@@ -201,6 +201,7 @@
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
@@ -219,6 +220,8 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\CommentViewModels\CreateCommentViewModel.cs" />
+    <Compile Include="ViewModels\CreateTicketViewModel.cs" />
     <Compile Include="ViewModels\LessonViewModels\LessonCommentViewModel.cs" />
     <Compile Include="ViewModels\LessonViewModels\LessonDetailsViewModel.cs" />
     <Compile Include="ViewModels\LessonViewModels\LessonsListViewModel.cs" />
@@ -233,7 +236,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\TicketViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -324,6 +326,7 @@
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Comment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -339,29 +342,33 @@
     </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Constants\TeachMe.Common.csproj">
+      <Project>{566c570e-17d2-4b7a-ac1a-49d2b429d95f}</Project>
+      <Name>TeachMe.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\TeachMe.Data.Common\TeachMe.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
       <Name>TeachMe.Data.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\TeachMe.Data.Models\TeachMe.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>TeachMe.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\TeachMe.Data\TeachMe.Data.csproj">
       <Project>{7c950cdc-9587-4b65-a204-988efed17948}</Project>
-      <Name>MvcTemplate.Data</Name>
+      <Name>TeachMe.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\TeachMe.Services.Data\TeachMe.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>
-      <Name>MvcTemplate.Services.Data</Name>
+      <Name>TeachMe.Services.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\TeachMe.Services.Web\TeachMe.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
-      <Name>MvcTemplate.Services.Web</Name>
+      <Name>TeachMe.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeachMe.Web.Infrastructure\TeachMe.Web.Infrastructure.csproj">
       <Project>{6813dc53-5eee-4507-8604-5301ee51a0d3}</Project>
-      <Name>MvcTemplate.Web.Infrastructure</Name>
+      <Name>TeachMe.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

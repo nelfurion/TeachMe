@@ -66,6 +66,6 @@ a, a:active, a:hover, a:visited, a.selected {
     color: black;
 }
 
-.navigation-link, .navbar-brand {
-    color: white;
+.navbar, .navbar-blue, .navigation-link, .navbar-brand, .navbar-right, .navbar a {
+    color: white !important;
 }
