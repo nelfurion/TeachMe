@@ -1,0 +1,5 @@
+﻿@model TeachMe.Web.Areas.Admin.ViewModels.TicketViewModels.TicketListRowViewModel
+
+<td>@Html.ActionLink(Model.Title, "Details", new { id = Model.Id }, null)</td>
+<td>@Html.Raw(Model.Creator)</td>
+<td>@Html.Raw(Model.CreatedOn)</td>

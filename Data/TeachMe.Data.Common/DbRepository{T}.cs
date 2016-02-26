@@ -49,6 +49,7 @@
         {
             entity.IsDeleted = true;
             entity.DeletedOn = DateTime.Now;
+            this.Context.SaveChanges();
         }
 
         public void HardDelete(T entity)
